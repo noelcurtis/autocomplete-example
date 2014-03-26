@@ -1,6 +1,4 @@
 package com.noelcurtis.autocomplete;
-
-import java.net.URL;
 import java.util.Scanner;
 
 public class App
@@ -20,7 +18,6 @@ public class App
             SearchComplete sc = new SearchComplete(filePath);
             sc.initialize();
 
-            //  prompt the user to enter their name
             Scanner scan = new Scanner(System.in);
             while (true)
             {
