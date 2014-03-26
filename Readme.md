@@ -1,3 +1,6 @@
+## About
+*   This project shows how you can create simple autocomplete with a prefix-tree.
+
 ## Usage
 *   You can run the program using `java -jar autocomplete.jar seeddata.txt`
 *   The jar can be found in the build folder `/build/autocomplete.jar`
