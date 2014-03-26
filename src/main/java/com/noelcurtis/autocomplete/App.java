@@ -9,23 +9,30 @@ public class App
     {
         try
         {
+            if (args == null || args.length == 0)
+            {
+                System.out.print("Usage `java -jar autocomplete.jar yourfile.txt`");
+                System.exit(1);
+            }
+            String filePath = args[0];
+
             System.out.println("\nHello, the current dictionary of words is as follows:\n");
-            URL url = App.class.getClassLoader().getResource("seeddata.txt");
-            SearchComplete sc = new SearchComplete(url.getPath());
+            SearchComplete sc = new SearchComplete(filePath);
             sc.initialize();
 
             //  prompt the user to enter their name
             Scanner scan = new Scanner(System.in);
             while (true)
             {
+                System.out.print("\n\nEnter a `exit` to exit");
                 System.out.print("\n\nEnter a prefix for a dish (example: `ch`):");
                 String dish = scan.nextLine();
-                WeightedDish[] dishes = sc.getPossibleDishes(dish);
-                printDishes(dishes);
                 if (dish.equalsIgnoreCase("exit"))
                 {
                     break; // exit
                 }
+                WeightedDish[] dishes = sc.getPossibleDishes(dish);
+                printDishes(dishes);
             }
         } catch (Exception ex)
         {
